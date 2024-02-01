@@ -1,2 +1,3 @@
 jal 팀프로젝트
-<img src="https://github.com/hyungaaa/team/blob/main/jal_logo_final.png?raw=true">
+<br>
+<img src="https://raw.githubusercontent.com/hyungaaa/team/main/jal_logo_final.png" width="300" height="150"/>

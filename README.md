@@ -1,1 +1,1 @@
-<img src="[https://raw.githubusercontent.com/hyungaaa/team/main/jal_logo_final.png](https://raw.githubusercontent.com/hyungaaa/team/main/img/jal_logo_final.)https://raw.githubusercontent.com/hyungaaa/team/main/img/jal_logo_final." width="300" height="150"/>
+<img src="https://raw.githubusercontent.com/hyungaaa/team/main/img/jal_logo_final." width="300" height="150"/>

@@ -1,7 +1,9 @@
+
 #div-select {
   text-align: right;
 }
-/* #div-ul {
+
+#div-ul {
   text-align: center;
 }
 ul {
@@ -14,4 +16,7 @@ li {
 a {
   text-decoration: none;
   color: #000;
-} */
+}
+.mod-txt {
+  width: 90%;
+}

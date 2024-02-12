@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
   bind();
 
-  document.querySelector(".navi-item3").setAttribute("class", "navi-item navi-item3 active");
+  document.querySelector(".navi-item4").setAttribute("class", "navi-item navi-item4 active");
 
 })
 
@@ -45,6 +45,7 @@ function inRegSearch() {
   }
 }
 
+
 function checkdPopup() {
   let radioBtn = document.querySelector('input[name="inReg-radio"]:checked').value;
   let locSelect = document.getElementById('locSelect');
@@ -56,13 +57,20 @@ function checkdPopup() {
   let count = document.getElementById('count');
   console.log(radioBtn);
 
+  // 원래 테이블
   let tbl = document.getElementById("inReg-tbl2");
   let tbody = tbl.getElementsByTagName("tbody")[0];
   let rows = tbody.getElementsByTagName("tr");
 
+  // 팝업 테이블
+  let tblPopup = document.getElementById("popup-tbl");
+  let tbodyPopup = tblPopup.getElementsByTagName("tbody")[0];
+  let rowsPopup = tbodyPopup.getElementsByTagName("tr");
+
   // 행 개수
   for (let i = 0; i < rows.length; i++) {
     const cells = rows[i].getElementsByTagName("td");
+    const cellsPopup = rowsPopup[i].getElementsByTagName("td");
     let match = false;
 
     // 열 개수
@@ -75,11 +83,11 @@ function checkdPopup() {
           match = true;
           closePopup();
           pdtName.value = cells[3].innerText;
-          size.value = cells[4].innerText;
-          unit.value = cells[5].innerText;
-          // count.value = cells[6].innerText;
+          size.value = cellsPopup[3].innerText;
+          unit.value = cellsPopup[4].innerText;
+          count.value = cells[5].innerText;
           pdtNum.value = radioBtn;
-          note.value = cells[9].innerText;
+          note.value = cells[10].innerText;
 
           console.log(radioBtn.substr(2, 1));
           // console.log(locSelect[1].value);
@@ -94,34 +102,17 @@ function checkdPopup() {
 
         }
       }
-
-
     }
-
   }
 
 }
 
-
-function openWindow() {
-  // 팝업 창 크기 설정
-  var width = 400; // 팝업 창의 너비
-  var height = 600; // 팝업 창의 높이
-
-  // 화면 중앙에 팝업 창을 위치시키기 위한 계산
-  var left = (window.screen.width / 2) - (width / 2);
-  var top = (window.screen.height / 2) - (height / 2);
-
-  // 새 팝업 창 열기
-  window.open('qrpage.html', 'newWindow', 'width=' + width + ', height=' + height + ', top=' + top + ', left=' + left);
-}
-
-
+// 테이블 행 추가
 function bind() {
 
   let plusTr = document.getElementById('plusTr');
-
   plusTr.addEventListener('click', function () {
+
     let tbl = document.getElementById('inReg-tbl2');
     let today = new Date();
     let year = today.getFullYear();
@@ -135,9 +126,10 @@ function bind() {
     html += '  <td>' + todayString + '</td>';
     html += '  <td>' + pdtNum.value + '</td>';
     html += '  <td>' + pdtName.value + '</td>';
-    html += '  <td>' + size.value + '</td>';
-    html += '  <td>' + unit.value + '</td>';
+    html += '  <td>' + locSelect.value + '</td>';
+    html += '  <td>' + outCount.value + '</td>';
     html += '  <td>' + count.value + '</td>';
+    html += '  <td>' + (count.value-outCount.value) + '</td>';
     html += '  <td>미등록</td>';
     html += '  <td></td>';
     html += '  <td></td>';
@@ -145,13 +137,14 @@ function bind() {
 
     if(pdtName.value == '') {
       alert('제품을 검색해주세요.');
-    } else if(count.value != '') {
+    } else if(outCount.value != '') {
       tbl.innerHTML += html;
     } else {
       alert('수량을 입력해주세요');
     }
+
   })
-  
+
   let selected_del = document.getElementById("selected_del"); 
   selected_del.addEventListener("click", function () {
   

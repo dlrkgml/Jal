@@ -15,7 +15,7 @@ function closePopup() {
   document.getElementById('popup').style.display = "none";
 }
 
-// 
+
 function inRegSearch() {
   // input창
   let input = document.getElementById("searchInput").value.toUpperCase();
